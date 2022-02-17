@@ -84,6 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreToAdd: 100
+  _applyAudioClip: {fileID: 0}
+  _applyVisualEffect: {fileID: 0}
 --- !u!212 &-2943387843152657886
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -124,7 +126,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6134feae86cee1c4080ff087df8b790f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa7ded66ce198334abadd3d0ad2331aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
