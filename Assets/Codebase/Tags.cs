@@ -3,5 +3,5 @@
     {
         public static string Ball = "Ball";
         public static string Platform = "Platform";
-
+        public static string BottomWall = "BottomWall";
     }

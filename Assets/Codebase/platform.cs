@@ -6,7 +6,8 @@ public class platform : MonoBehaviour
 
     #region Veriables
 
-    public SpriteRenderer[] SpriteRenderers;
+    public SpriteRenderer SpriteRenderers;
+    public Sprite Sprites;
 
     private Transform _ballTransform;
 

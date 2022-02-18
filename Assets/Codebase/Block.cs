@@ -6,6 +6,7 @@ public class Block : MonoBehaviour
 {
     #region Veriables
 
+    public GameObject _kuskiPrefab;
     public AudioClip AudioClip;
     public int Score = 5;
     [SerializeField] private GameObject _scoreUpPickUpPrefab;
@@ -24,7 +25,7 @@ public class Block : MonoBehaviour
     private void CreatePickUpIsNeeded()
     {
         float randomChance = Random.Range(0.1f, 100f);
-        if (_pickUpChance>=_pickUpChance)
+        if (randomChance>=_pickUpChance)
         {
             Instantiate(_scoreUpPickUpPrefab, transform.position, Quaternion.identity);
         }
@@ -34,14 +35,26 @@ public class Block : MonoBehaviour
     {
         AudioManager.Instanse.PlayOnShot(AudioClip);
         GameManager.Instanse.AddScore(Score);
-        Destroy(gameObject);
         CreatePickUpIsNeeded();
+        DestroyObject();
         CrushBlock?.Invoke();
     }
 
   
 
     #endregion
+
+    private void DestroyObject()
+    {
+        GameObject instantiate = Instantiate(_kuskiPrefab, transform.position, Quaternion.identity);
+        Kuski kuski = instantiate.GetComponent<Kuski>();
+        kuski.PoletKuskovright();
+        GameObject instantiate1 = Instantiate(_kuskiPrefab, transform.position, Quaternion.identity);
+        Kuski kuski1 = instantiate1.GetComponent<Kuski>();
+        kuski1.PoletKuskovLeft();
+        Destroy(gameObject); 
+    }
+    
 
 
 }

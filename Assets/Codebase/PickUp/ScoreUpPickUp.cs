@@ -17,6 +17,10 @@ using UnityEngine;
                 ApplyPickUp();
                 Destroy(gameObject);
             }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void PlayAudio()

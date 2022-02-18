@@ -96,10 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed180842035b7d643b811955b22aee26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _kuskiPrefab: {fileID: 4473361689662837676, guid: 72b05859da1893a4993f35af639b2688, type: 3}
   AudioClip: {fileID: 8300000, guid: b99da9a57308d4ba1bee1cf1d9038376, type: 3}
   Score: 5
   _scoreUpPickUpPrefab: {fileID: 6971668792948976421, guid: 2ea12bc2c85a76142815f8cd70938f58, type: 3}
-  _pickUpChance: 30.3
+  _pickUpChance: 50.9
 --- !u!61 &3587755164569317545
 BoxCollider2D:
   m_ObjectHideFlags: 0
