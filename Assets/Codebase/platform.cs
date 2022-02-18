@@ -6,6 +6,8 @@ public class platform : MonoBehaviour
 
     #region Veriables
 
+    public SpriteRenderer[] SpriteRenderers;
+
     private Transform _ballTransform;
 
     #endregion
