@@ -15,6 +15,10 @@ public abstract class PickUpBase : MonoBehaviour
             ApplyPickUp();
             Destroy(gameObject);
         }
+        else if (col.gameObject.CompareTag(Tags.BottomWall))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void PlayAudio()

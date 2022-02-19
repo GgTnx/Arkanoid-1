@@ -1,17 +1,19 @@
-using System;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
     #region Veriables
-
-    public Rigidbody2D Rb;
+    public Rigidbody2D Rb; 
     public float Speed;
     public Vector2 Direction;
     public Transform PlatformTransform;
     public AudioClip _Clip;
     private bool _isStarted;
-    private bool _isMagnite = true;
+    public bool _isMagnite;
+    public Transform ballScale;
+    private Vector3 _magnitPositiont;
+    private float _deltaX;
+    private float _deltaY = 0.57f;
 
     #endregion
     #region Unity lifecycle
@@ -26,9 +28,10 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
-        if(_isStarted)
+        if (_isStarted)
             return;
-        MoveballWithPlatform();
+        
+        MoveBallIfMagnite();
         if (Input.GetMouseButtonDown(0))
         {
             StartBall();
@@ -37,6 +40,18 @@ public class Ball : MonoBehaviour
 
     #endregion
     #region public methods
+
+
+    public void ScaleUp()
+    {
+        Vector3 localChangeScale = new Vector3(1, 1, 0);
+        ballScale.transform.localScale += localChangeScale;
+    }
+    public void ScaleDown()
+    {
+        Vector3 localChangeScale = new Vector3(0.5f, 0.5f, 0);
+        ballScale.transform.localScale -= localChangeScale;
+    }
 
     public void Restart()
     {
@@ -53,19 +68,14 @@ public class Ball : MonoBehaviour
 
     {
         AudioManager.Instanse.PlayOnShot(_Clip);
-      //  ContactPoint2D sdfsdf;
-  //      col.
-       // 
-       // foreach (ContactPoint2D missileHit in col.contacts)
-        {
-      //      Vector2 hitPoint = missileHit.point;
-            
-        }
 
-       // if (col.gameObject.CompareTag(Tags.Platform)&& _isMagnite)
-        {
-      //     Magnite();
-        }
+            if (col.gameObject.CompareTag(Tags.Platform))
+            {
+                _deltaX = transform.position.x - PlatformTransform.position.x;
+                
+ 
+            }
+
     }
     private void MoveballWithPlatform()
     {
@@ -73,7 +83,16 @@ public class Ball : MonoBehaviour
         currentPosition.x = PlatformTransform.position.x;
         transform.position = currentPosition;
     }
-    private void StartBall()
+
+    private void MoveBallIfMagnite()
+    {
+        Vector3 currentPosition = transform.position;
+        currentPosition.x = PlatformTransform.position.x + _deltaX;
+        currentPosition.y = PlatformTransform.position.y + _deltaY;
+        transform.position = currentPosition;
+       
+    }
+    public void StartBall()
     {
         Rb.velocity = Direction.normalized * Speed;
         _isStarted = true;

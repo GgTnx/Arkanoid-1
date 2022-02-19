@@ -8,6 +8,7 @@ public class platform : MonoBehaviour
 
     public SpriteRenderer SpriteRenderers;
     public Sprite Sprites;
+    public Transform _Transformplatform;
 
     private Transform _ballTransform;
 
@@ -19,7 +20,7 @@ public class platform : MonoBehaviour
     private void Start()
     {
         _ballTransform = FindObjectOfType<Ball>().transform;
-        
+
     }
 
     private void Update()
@@ -27,6 +28,7 @@ public class platform : MonoBehaviour
         if (GameManager.Instanse.NeedAutoPlay)
         {
             MovePlatformWithBall();
+
         }
         else
         {
@@ -36,6 +38,26 @@ public class platform : MonoBehaviour
     }
 
     
+
+    #endregion
+
+    #region Public methods
+
+    public void ChangeMagnitPlatform()
+    {
+        SpriteRenderers.sprite = Sprites;
+    }
+    public void ScalePlatformUp()
+    {
+        Vector3 localChangeScale = new Vector3(1, 0, 0);
+        _Transformplatform.localScale += localChangeScale;
+
+    }
+    public void ScalePlatformDown()
+    {
+        Vector3 localChangeScale = new Vector3(0.5f, 0, 0);
+        _Transformplatform.localScale -= localChangeScale;
+    }
 
     #endregion
 

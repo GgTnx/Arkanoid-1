@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2828152955242970358}
   - component: {fileID: 659470179504068064}
   - component: {fileID: 493371720501911318}
-  - component: {fileID: 63265466096006386}
   - component: {fileID: -2943387843152657886}
-  m_Layer: 0
+  - component: {fileID: 2534010603756796012}
+  m_Layer: 10
   m_Name: ScoreUpPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,21 +71,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &63265466096006386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6971668792948976421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3d169ed051344d986099934e613b042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scoreToAdd: 100
-  _applyAudioClip: {fileID: 0}
-  _applyVisualEffect: {fileID: 0}
 --- !u!212 &-2943387843152657886
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -137,3 +122,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2534010603756796012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971668792948976421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f83e338a23e0f41adb9bb4155a52d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _applyAudioClip: {fileID: 0}
+  _applyVisualEffect: {fileID: 0}
+  _ballcount: 1

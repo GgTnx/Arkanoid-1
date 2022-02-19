@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -22,14 +23,7 @@ public class Block : MonoBehaviour
     #endregion
     #region privat methods
 
-    private void CreatePickUpIsNeeded()
-    {
-        float randomChance = Random.Range(0.1f, 100f);
-        if (randomChance>=_pickUpChance)
-        {
-            Instantiate(_scoreUpPickUpPrefab, transform.position, Quaternion.identity);
-        }
-    }
+  
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -53,6 +47,16 @@ public class Block : MonoBehaviour
         Kuski kuski1 = instantiate1.GetComponent<Kuski>();
         kuski1.PoletKuskovLeft();
         Destroy(gameObject); 
+    }
+    private void CreatePickUpIsNeeded()
+    {
+        float randomChance = Random.Range(0.1f, 100f);
+        if (randomChance <= _pickUpChance)
+        {
+            
+            Instantiate(_scoreUpPickUpPrefab, transform.position, Quaternion.identity);
+        }
+   
     }
     
 

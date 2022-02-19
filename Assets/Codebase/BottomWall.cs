@@ -7,13 +7,19 @@ public class BottomWall : MonoBehaviour
     {
         if (col.gameObject.CompareTag(Tags.Ball))
         {
-            Ball ball = col.gameObject.GetComponent<Ball>();
-            ball.Restart();
-            GameManager.Instanse.RemoveLives();
+            Ball[] balls = FindObjectsOfType<Ball>();
+            if (balls.Length == 1)
+            {
+                Ball ball = col.gameObject.GetComponent<Ball>();
+                ball.Restart();
+                GameManager.Instanse.RemoveLives(); // и вернуть на стартовую позицию
+            }
+            else
+            {
+                Destroy(col.gameObject);
+            }
         }
-        else
-        {
-            Destroy(col.gameObject);
-        }
+        
+       
     }
 }
