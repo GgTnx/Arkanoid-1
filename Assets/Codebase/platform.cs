@@ -9,6 +9,8 @@ public class platform : MonoBehaviour
     public SpriteRenderer SpriteRenderers;
     public Sprite Sprites;
     public Transform _Transformplatform;
+    public bool _isMashinGun;
+    public GameObject _bulletPrefab;
 
     private Transform _ballTransform;
 
@@ -32,6 +34,12 @@ public class platform : MonoBehaviour
         }
         else
         {
+            if (_isMashinGun&& Input.GetMouseButtonDown(0))
+            {
+                GameObject _bullet = Instantiate(_bulletPrefab, _Transformplatform.position, Quaternion.identity);
+                Bullet component = _bullet.gameObject.GetComponent<Bullet>();
+                component.StartBullet();
+            }
             MovePlatformWithmouse();
         }
         

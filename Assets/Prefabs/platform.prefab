@@ -125,3 +125,5 @@ MonoBehaviour:
   SpriteRenderers: {fileID: 3342786144869875391}
   Sprites: {fileID: 21300000, guid: 68daca58cf7859249b294d222160b569, type: 3}
   _Transformplatform: {fileID: 3342786144869875390}
+  _isMashinGun: 1
+  _bulletPrefab: {fileID: 7261875169011067237, guid: 482173e6f349287489d8a3cda8bd8e26, type: 3}
