@@ -27,18 +27,22 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        SeekAndDestroy();
+    }
+
+ 
+
+    #endregion
+
+    public void SeekAndDestroy()
+    {
         AudioManager.Instanse.PlayOnShot(AudioClip);
         GameManager.Instanse.AddScore(Score);
         CreatePickUpIsNeeded();
         DestroyObject();
         CrushBlock?.Invoke();
     }
-
-  
-
-    #endregion
-
-    private void DestroyObject()
+    public void DestroyObject()
     {
         GameObject instantiate = Instantiate(_kuskiPrefab, transform.position, Quaternion.identity);
         Kuski kuski = instantiate.GetComponent<Kuski>();
