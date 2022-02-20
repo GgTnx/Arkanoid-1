@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7043346807104206866}
   - component: {fileID: -32190800895437056}
   - component: {fileID: -3768576201318109387}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: DoubleBlock
-  m_TagString: Untagged
+  m_TagString: Double
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

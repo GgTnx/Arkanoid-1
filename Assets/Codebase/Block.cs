@@ -1,5 +1,4 @@
 using System;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,7 +12,6 @@ public class Block : MonoBehaviour
     [SerializeField] private GameObject _scoreUpPickUpPrefab;
     [Range(1f,100f)]
     [SerializeField] private float _pickUpChance;
-    
 
     #endregion
     #region Event
@@ -23,14 +21,10 @@ public class Block : MonoBehaviour
     #endregion
     #region privat methods
 
-  
-
     private void OnCollisionEnter2D(Collision2D col)
     {
         SeekAndDestroy();
     }
-
- 
 
     #endregion
 
@@ -57,7 +51,6 @@ public class Block : MonoBehaviour
         float randomChance = Random.Range(0.1f, 100f);
         if (randomChance <= _pickUpChance)
         {
-            
             Instantiate(_scoreUpPickUpPrefab, transform.position, Quaternion.identity);
         }
    

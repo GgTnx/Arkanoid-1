@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplosivBlock : MonoBehaviour
@@ -25,6 +22,11 @@ public class ExplosivBlock : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+      SeekAndDestroy();
+    }
+
+     public void SeekAndDestroy()
+    {
         AudioManager.Instanse.PlayOnShot(AudioClip);
         GameManager.Instanse.AddScore(_Score);
         Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, _radius,_Layer);
@@ -34,9 +36,26 @@ public class ExplosivBlock : MonoBehaviour
             {
                 continue;
             }
-
-            Block block = collider.gameObject.GetComponent<Block>();
-            block.SeekAndDestroy();
+            else if (collider.gameObject.CompareTag(Tags.Invis))
+            {
+                Destroy(collider.gameObject);
+            }
+            else if(collider.gameObject.CompareTag(Tags.Double))
+            {
+                DoubleBlock component = collider.gameObject.GetComponent<DoubleBlock>();
+                component.SeekAndDestroy();
+            }
+            else if (collider.gameObject.CompareTag(Tags.Explosiv))
+            {
+                ExplosivBlock component = collider.gameObject.GetComponent<ExplosivBlock>();
+                component.SeekAndDestroy();
+            }
+            else
+            {
+                Block block = collider.gameObject.GetComponent<Block>();
+                block.SeekAndDestroy();
+            }
+ 
         }
         Destroy(gameObject);
     }

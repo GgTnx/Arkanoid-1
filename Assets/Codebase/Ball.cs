@@ -14,6 +14,11 @@ public class Ball : MonoBehaviour
     private Vector3 _magnitPositiont;
     private float _deltaX;
     private float _deltaY = 0.57f;
+    public bool _isExplosiv;
+    public GameObject _explosivBlock;
+    public float _radius;
+    public LayerMask _Layer;
+    
 
     #endregion
     #region Unity lifecycle
@@ -67,16 +72,53 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
 
     {
+        calculationDeltaX(col);
+        if (_isExplosiv)
+        {
+            Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, _radius,_Layer);
+            foreach (Collider2D collider in collider2Ds)
+            {
+                if (collider.gameObject == gameObject)
+                {
+                    continue;
+                }
+                else if (collider.gameObject.CompareTag(Tags.Invis))
+                {
+                    Destroy(collider.gameObject);
+                }
+                else if (collider.gameObject.CompareTag(Tags.Double))
+                {
+                    DoubleBlock component = collider.gameObject.GetComponent<DoubleBlock>();
+                    component.SeekAndDestroy();
+                }
+                else if (collider.gameObject.CompareTag(Tags.Explosiv))
+                {
+                    ExplosivBlock component = collider.gameObject.GetComponent<ExplosivBlock>();
+                    component.SeekAndDestroy();
+                }
+                else if(collider.gameObject.CompareTag(Tags.Block))
+                {
+                    Block block = collider.gameObject.GetComponent<Block>();
+                    block.SeekAndDestroy();
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+    }
+
+    private void calculationDeltaX(Collision2D col)
+    {
         AudioManager.Instanse.PlayOnShot(_Clip);
 
-            if (col.gameObject.CompareTag(Tags.Platform))
-            {
-                _deltaX = transform.position.x - PlatformTransform.position.x;
-                
- 
-            }
-
+        if (col.gameObject.CompareTag(Tags.Platform))
+        {
+            _deltaX = transform.position.x - PlatformTransform.position.x;
+        }
     }
+
     private void MoveballWithPlatform()
     {
         Vector3 currentPosition = transform.position;
@@ -103,6 +145,11 @@ public class Ball : MonoBehaviour
 
         Rb.velocity = Vector2.zero;
         _isStarted = false;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, _radius);
     }
 
     #endregion

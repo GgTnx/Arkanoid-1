@@ -24,10 +24,8 @@ public class DoubleBlock : MonoBehaviour
     {
         if (_oneHit)
         {
-            AudioManager.Instanse.PlayOnShot(AudioClip);
-            GameManager.Instanse.AddScore(Score);
-            DestroyObject();
-            // CrushInvBlock?.Invoke();
+            SeekAndDestroy();
+          
         }
         else
         {
@@ -35,6 +33,13 @@ public class DoubleBlock : MonoBehaviour
             AudioManager.Instanse.PlayOnShot(AudioClip);
             _oneHit = true;
         }
+    }
+
+    public void SeekAndDestroy()
+    {
+        AudioManager.Instanse.PlayOnShot(AudioClip);
+        GameManager.Instanse.AddScore(Score);
+        DestroyObject();
     }
     private void DestroyObject()
     {

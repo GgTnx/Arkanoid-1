@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 217552348271102551}
   - component: {fileID: 1854949768}
   - component: {fileID: 1854949767}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: ExplosivBlock
-  m_TagString: Untagged
+  m_TagString: Explosiv
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,4 +153,4 @@ MonoBehaviour:
   _radius: 1.8
   _Layer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 896

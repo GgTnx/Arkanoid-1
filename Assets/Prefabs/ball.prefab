@@ -141,3 +141,9 @@ MonoBehaviour:
   _Clip: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
   _isMagnite: 0
   ballScale: {fileID: 5136899462702844947}
+  _isExplosiv: 1
+  _explosivBlock: {fileID: 7347052451527616592, guid: 504103c0de3bd6c47a227c64a12b7f78, type: 3}
+  _radius: 2
+  _Layer:
+    serializedVersion: 2
+    m_Bits: 1920

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3587755164569317545}
   m_Layer: 7
   m_Name: Block
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   AudioClip: {fileID: 8300000, guid: b99da9a57308d4ba1bee1cf1d9038376, type: 3}
   Score: 5
   _scoreUpPickUpPrefab: {fileID: 6971668792948976421, guid: 2ea12bc2c85a76142815f8cd70938f58, type: 3}
-  _pickUpChance: 100
+  _pickUpChance: 1
 --- !u!61 &3587755164569317545
 BoxCollider2D:
   m_ObjectHideFlags: 0
