@@ -25,11 +25,15 @@ public class ExplosivBlock : MonoBehaviour
       SeekAndDestroy();
     }
 
-     public void SeekAndDestroy()
+    #endregion
+
+    #region Public Methods
+
+    public void SeekAndDestroy()
     {
         AudioManager.Instanse.PlayOnShot(AudioClip);
         GameManager.Instanse.AddScore(_Score);
-        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, _radius,_Layer);
+        Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, _radius, _Layer);
         foreach (Collider2D collider in collider2Ds)
         {
             if (collider.gameObject == gameObject)
@@ -40,7 +44,7 @@ public class ExplosivBlock : MonoBehaviour
             {
                 Destroy(collider.gameObject);
             }
-            else if(collider.gameObject.CompareTag(Tags.Double))
+            else if (collider.gameObject.CompareTag(Tags.Double))
             {
                 DoubleBlock component = collider.gameObject.GetComponent<DoubleBlock>();
                 component.SeekAndDestroy();
@@ -55,12 +59,14 @@ public class ExplosivBlock : MonoBehaviour
                 Block block = collider.gameObject.GetComponent<Block>();
                 block.SeekAndDestroy();
             }
- 
+
         }
+
         Destroy(gameObject);
     }
 
     #endregion
+
     
     
 }

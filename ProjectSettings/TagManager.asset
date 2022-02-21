@@ -11,6 +11,7 @@ TagManager:
   - Invis
   - Double
   - Explosiv
+  - Block
   layers:
   - Default
   - TransparentFX

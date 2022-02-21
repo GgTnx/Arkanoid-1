@@ -25,8 +25,19 @@ public class Block : MonoBehaviour
     {
         SeekAndDestroy();
     }
+    private void CreatePickUpIsNeeded()
+    {
+        float randomChance = Random.Range(0.1f, 100f);
+        if (randomChance <= _pickUpChance)
+        {
+            Instantiate(_scoreUpPickUpPrefab, transform.position, Quaternion.identity);
+        }
+   
+    }
 
     #endregion
+
+    #region Public Methods
 
     public void SeekAndDestroy()
     {
@@ -46,15 +57,9 @@ public class Block : MonoBehaviour
         kuski1.PoletKuskovLeft();
         Destroy(gameObject); 
     }
-    private void CreatePickUpIsNeeded()
-    {
-        float randomChance = Random.Range(0.1f, 100f);
-        if (randomChance <= _pickUpChance)
-        {
-            Instantiate(_scoreUpPickUpPrefab, transform.position, Quaternion.identity);
-        }
+
+    #endregion
    
-    }
     
 
 

@@ -4105,7 +4105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &119436012
 Transform:
   m_ObjectHideFlags: 0
@@ -53121,6 +53121,14 @@ PrefabInstance:
       propertyPath: Clon
       value: 
       objectReference: {fileID: 6226848382754799950, guid: e3675aaba54a5f144ae504b58fd095a1, type: 3}
+    - target: {fileID: 5136899462702844944, guid: e3675aaba54a5f144ae504b58fd095a1, type: 3}
+      propertyPath: _radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136899462702844944, guid: e3675aaba54a5f144ae504b58fd095a1, type: 3}
+      propertyPath: _Layer.m_Bits
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 5136899462702844944, guid: e3675aaba54a5f144ae504b58fd095a1, type: 3}
       propertyPath: PlatformTransform
       value: 

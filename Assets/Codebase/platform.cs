@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class platform : MonoBehaviour
@@ -11,7 +10,6 @@ public class platform : MonoBehaviour
     public Transform _Transformplatform;
     public bool _isMashinGun;
     public GameObject _bulletPrefab;
-
     private Transform _ballTransform;
 
     #endregion
@@ -22,30 +20,12 @@ public class platform : MonoBehaviour
     private void Start()
     {
         _ballTransform = FindObjectOfType<Ball>().transform;
-
     }
 
     private void Update()
     {
-        if (GameManager.Instanse.NeedAutoPlay)
-        {
-            MovePlatformWithBall();
-
-        }
-        else
-        {
-            if (_isMashinGun&& Input.GetMouseButtonDown(0))
-            {
-                GameObject _bullet = Instantiate(_bulletPrefab, _Transformplatform.position, Quaternion.identity);
-                Bullet component = _bullet.gameObject.GetComponent<Bullet>();
-                component.StartBullet();
-            }
-            MovePlatformWithmouse();
-        }
-        
+        MovePlatform();
     }
-
-    
 
     #endregion
 
@@ -70,6 +50,24 @@ public class platform : MonoBehaviour
     #endregion
 
     #region Privet Methods
+    private void MovePlatform()
+    {
+        if (GameManager.Instanse.NeedAutoPlay)
+        {
+            MovePlatformWithBall();
+        }
+        else
+        {
+            if (_isMashinGun && Input.GetMouseButtonDown(0))
+            {
+                GameObject _bullet = Instantiate(_bulletPrefab, _Transformplatform.position, Quaternion.identity);
+                Bullet component = _bullet.gameObject.GetComponent<Bullet>();
+                component.StartBullet();
+            }
+
+            MovePlatformWithmouse();
+        }
+    }
 
     private void MovePlatformWithmouse()
     {

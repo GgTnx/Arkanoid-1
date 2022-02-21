@@ -62,6 +62,11 @@ public class Ball : MonoBehaviour
     {
        
     }
+    public void StartBall()
+    {
+        Rb.velocity = Direction.normalized * Speed;
+        _isStarted = true;
+    }
 
     #endregion
     #region Private methods
@@ -73,9 +78,14 @@ public class Ball : MonoBehaviour
 
     {
         calculationDeltaX(col);
+        ExplosivBall();
+    }
+
+    private void ExplosivBall()
+    {
         if (_isExplosiv)
         {
-            Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, _radius,_Layer);
+            Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, _radius, _Layer);
             foreach (Collider2D collider in collider2Ds)
             {
                 if (collider.gameObject == gameObject)
@@ -96,7 +106,7 @@ public class Ball : MonoBehaviour
                     ExplosivBlock component = collider.gameObject.GetComponent<ExplosivBlock>();
                     component.SeekAndDestroy();
                 }
-                else if(collider.gameObject.CompareTag(Tags.Block))
+                else if (collider.gameObject.CompareTag(Tags.Block))
                 {
                     Block block = collider.gameObject.GetComponent<Block>();
                     block.SeekAndDestroy();
@@ -134,12 +144,7 @@ public class Ball : MonoBehaviour
         transform.position = currentPosition;
        
     }
-    public void StartBall()
-    {
-        Rb.velocity = Direction.normalized * Speed;
-        _isStarted = true;
-    }
-
+   
     private void Magnite()
     {
 
