@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ExplosivBlock : MonoBehaviour
 {
-
     #region Veriables
 
     private int _Score = 30;
@@ -22,7 +21,7 @@ public class ExplosivBlock : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-      SeekAndDestroy();
+        SeekAndDestroy();
     }
 
     #endregion
@@ -49,24 +48,22 @@ public class ExplosivBlock : MonoBehaviour
                 DoubleBlock component = collider.gameObject.GetComponent<DoubleBlock>();
                 component.SeekAndDestroy();
             }
+
             else if (collider.gameObject.CompareTag(Tags.Explosiv))
             {
                 ExplosivBlock component = collider.gameObject.GetComponent<ExplosivBlock>();
                 component.SeekAndDestroy();
             }
             else
+
             {
                 Block block = collider.gameObject.GetComponent<Block>();
                 block.SeekAndDestroy();
             }
-
         }
 
         Destroy(gameObject);
     }
 
     #endregion
-
-    
-    
 }

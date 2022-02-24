@@ -1,9 +1,9 @@
-
 using UnityEngine;
 
 public class TripleBallPickUp : PickUpBase
 {
     [SerializeField] private int _ballcount;
+
     protected override void ApplyPickUp()
     {
         Ball[] balls = FindObjectsOfType<Ball>();
@@ -16,8 +16,5 @@ public class TripleBallPickUp : PickUpBase
                 newball.StartBall();
             }
         }
-        
     }
-
-  
 }

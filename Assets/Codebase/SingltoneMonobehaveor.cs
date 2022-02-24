@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class SingletoneMonobehaveor<T>: MonoBehaviour
+public class SingletoneMonobehaveor<T> : MonoBehaviour
 {
     #region Veriables
-    
+
     private static T _instance;
-    
 
     #endregion
 
@@ -22,12 +21,13 @@ public class SingletoneMonobehaveor<T>: MonoBehaviour
         if (_instance != null)
         {
             Destroy(gameObject);
-           
+
             return;
         }
 
         _instance = GetComponent<T>();
         DontDestroyOnLoad(gameObject);
     }
+
     #endregion
 }
